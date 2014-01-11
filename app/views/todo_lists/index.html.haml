@@ -1,0 +1,12 @@
+%h1 All the TODOS!
+%ul
+- @todos.each do |todo|
+  %li 
+    =todo.name
+    = link_to todo.name, todo_list_path(todo)
+
+= form_for(TodoList.new) do |f|
+  = f.label :name
+  = f.text_field :name
+  
+  = f.submit
