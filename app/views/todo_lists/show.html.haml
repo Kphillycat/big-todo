@@ -1,1 +1,12 @@
 = @todo.name
+#todos
+%ul
+- @todo.todo_list_items.each do |item|
+  %li
+    = item.content
+
+= form_for(TodoListItem.new, :url => "/todo_lists/#{params[:id]}/todo_list_items") do |f|
+  = f.label :content
+  = f.text_field :content
+  
+  = f.submit "Create Todo"

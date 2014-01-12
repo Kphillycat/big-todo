@@ -1,6 +1,9 @@
 TheBigTodo::Application.routes.draw do
 
-  resources :todo_lists
+  resources :todo_lists do
+    post "/todo_list_items" => 'todo_list_items#create'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

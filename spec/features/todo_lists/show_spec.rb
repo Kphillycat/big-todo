@@ -5,10 +5,10 @@ feature "TodoList" do
     before do
       @list = TodoList.create(name: 'Best Day Ever')
 
-      @t1 = @list.todos.create(name: 'Michael Jackson zombie flash mob')
-      @t2 = @list.todos.create(name: 'Rob Zombie pop singer flash mob')
-      @t3 = @list.todos.create(name: 'Talk to DHH')
-      @t4 = @list.todos.create(name: 'Finish todo app')
+      @t1 = @list.todo_list_items.create(name: 'Michael Jackson zombie flash mob')
+      @t2 = @list.todo_list_items.create(name: 'Rob Zombie pop singer flash mob')
+      @t3 = @list.todo_list_items.create(name: 'Talk to DHH')
+      @t4 = @list.todo_list_items.create(name: 'Finish todo app')
 
       visit todo_list_path(@list)
     end
@@ -29,7 +29,7 @@ feature "TodoList" do
     it "should have a form for creating new todos" do
       todo_name = 'See Keanu'
 
-      fill_in(:todo_name, with: todo_name)
+      fill_in(:content, with: todo_name)
       click_button('Create Todo')
 
       expect(page).to have_content(todo_name)
